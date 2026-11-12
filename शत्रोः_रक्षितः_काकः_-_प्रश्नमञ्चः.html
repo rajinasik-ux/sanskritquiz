@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="sa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>१. शत्रोः रक्षितः काकः - संस्कृत-प्रश्नमञ्चः</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for crisp Devanagari rendering -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans Devanagari"', 'sans-serif'],
+                        serif: ['"Noto Serif Devanagari"', 'serif'],
+                    },
+                    colors: {
+                        parchment: '#FDF8EE',
+                        cardbg: '#FFFDF9',
+                        maroon: {
+                            DEFAULT: '#7A1C1C',
+                            dark: '#581212',
+                            light: '#F9ECEC'
+                        },
+                        saffron: {
+                            DEFAULT: '#D97706',
+                            light: '#FEF3C7'
+                        },
+                        ink: '#291D18'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FDF8EE;
+            background-image: radial-gradient(#E6D5B8 0.75px, transparent 0.75px);
+            background-size: 20px 20px;
+            color: #291D18;
+        }
+        .fade-in {
+            animation: fadeIn 0.35s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between p-4 sm:p-6 md:p-8 font-sans antialiased">
+
+    <!-- Header Section -->
+    <header class="max-w-3xl w-full mx-auto text-center mb-6">
+        <div class="inline-block px-4 py-1.5 rounded-full bg-saffron-light border border-amber-300 text-amber-900 text-sm font-semibold mb-3 shadow-sm">
+            ॥ संस्कृत-अभ्यासः ॥
+        </div>
+        <h1 class="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-maroon tracking-tight">
+            १. शत्रोः रक्षितः काकः
+        </h1>
+        <p class="text-sm sm:text-base text-stone-600 mt-1.5">
+            पाठाधारितः बहुविकल्पात्मकः प्रश्नमञ्चः (१० प्रश्नाः)
+        </p>
+    </header>
+
+    <!-- Main Quiz Container -->
+    <main class="max-w-3xl w-full mx-auto flex-grow flex items-center justify-center">
+        
+        <!-- Start Screen (Optional quick intro before diving in) -->
+        <div id="start-screen" class="w-full bg-cardbg border-2 border-amber-200/80 rounded-2xl shadow-lg p-6 sm:p-10 text-center fade-in">
+            <div class="w-16 h-16 mx-auto bg-maroon-light text-maroon rounded-full flex items-center justify-center mb-5 border border-maroon/20">
+                <!-- Decorative Book/Scroll SVG Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                </svg>
+            </div>
+            <h2 class="font-serif text-xl sm:text-2xl font-bold text-ink mb-3">
+                स्वागतम्!
+            </h2>
+            <p class="text-stone-700 text-base sm:text-lg leading-relaxed max-w-xl mx-auto mb-6">
+                अस्मिन् प्रश्नमञ्चे <strong>‘शत्रोः रक्षितः काकः’</strong> इति पाठम् आधारीकृत्य दश (१०) प्रश्नाः सन्ति। प्रत्येकं प्रश्नस्य चत्वारः विकल्पाः सन्ति। उचितम् उत्तरं चिनुत।
+            </p>
+            <div class="bg-amber-50/80 border border-amber-200 rounded-xl p-4 max-w-md mx-auto mb-8 text-sm text-stone-700 space-y-1.5 text-left">
+                <p>• <strong>कुलप्रश्नाः:</strong> १० (दश)</p>
+                <p>• <strong>प्रत्येकं सम्यक् उत्तरस्य अङ्कः:</strong> १ (एकः)</p>
+                <p>• <strong>तत्क्षणं प्रतिपुष्टिः:</strong> उत्तरस्य पश्चात् स्पष्टीकरणं दृश्यते।</p>
+            </div>
+            <button onclick="startQuiz()" class="w-full sm:w-auto px-8 py-3.5 bg-maroon hover:bg-maroon-dark text-white font-semibold rounded-xl shadow-md hover:shadow-lg transition-all duration-200 text-lg cursor-pointer">
+                प्रश्नमञ्चम् आरभताम् &rarr;
+            </button>
+        </div>
+
+        <!-- Quiz Active Screen -->
+        <div id="quiz-screen" class="hidden w-full bg-cardbg border-2 border-amber-200/80 rounded-2xl shadow-lg overflow-hidden fade-in">
+            
+            <!-- Top Status Bar -->
+            <div class="bg-amber-50/90 border-b border-amber-200/80 px-5 sm:px-8 py-4 flex flex-wrap items-center justify-between gap-3">
+                <div class="flex items-center gap-2">
+                    <span class="px-3 py-1 bg-maroon text-white text-sm font-semibold rounded-lg shadow-xs" id="question-counter">
+                        प्रश्नः १ / १०
+                    </span>
+                </div>
+                <div class="flex items-center gap-2 text-sm sm:text-base font-semibold text-amber-950 bg-white px-3.5 py-1 rounded-lg border border-amber-200">
+                    <span>अङ्काः :</span>
+                    <span id="score-display" class="text-maroon font-bold text-lg">०</span>
+                </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="w-full bg-amber-100 h-2">
+                <div id="progress-bar" class="bg-saffron h-2 transition-all duration-300" style="width: 10%;"></div>
+            </div>
+
+            <!-- Question & Options Body -->
+            <div class="p-6 sm:p-8 md:p-10">
+                <!-- Question Text -->
+                <h2 id="question-text" class="font-serif text-xl sm:text-2xl font-bold text-ink leading-snug mb-6">
+                    <!-- Question injected via JS -->
+                </h2>
+
+                <!-- Options Container -->
+                <div id="options-container" class="space-y-3.5">
+                    <!-- Option buttons injected via JS -->
+                </div>
+
+                <!-- Feedback & Explanation Box -->
+                <div id="feedback-box" class="hidden mt-6 p-5 rounded-xl border-2 fade-in">
+                    <div class="flex items-start gap-3">
+                        <div id="feedback-icon" class="mt-0.5 shrink-0"></div>
+                        <div>
+                            <h3 id="feedback-title" class="font-bold text-lg"></h3>
+                            <p id="feedback-explanation" class="text-stone-800 mt-1.5 text-sm sm:text-base leading-relaxed"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons Footer (Previous & Next) -->
+                <div id="nav-container" class="mt-7 pt-5 border-t border-amber-200/70 flex flex-col-reverse sm:flex-row items-center justify-between gap-3">
+                    <button id="prev-btn" type="button" onclick="prevQuestion()" class="w-full sm:w-auto px-6 py-3 bg-amber-100 hover:bg-amber-200 text-amber-950 font-semibold rounded-xl border border-amber-300 transition-all duration-200 text-base sm:text-lg cursor-pointer flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-amber-100">
+                        <span>&larr;</span>
+                        <span>पूर्वः प्रश्नः</span>
+                    </button>
+
+                    <button id="next-btn" type="button" onclick="nextQuestion()" class="w-full sm:w-auto px-7 py-3 bg-maroon hover:bg-maroon-dark text-white font-semibold rounded-xl shadow-md transition-all duration-200 text-base sm:text-lg cursor-pointer flex items-center justify-center gap-2">
+                        <span id="next-btn-text">अग्रिमः प्रश्नः</span>
+                        <span>&rarr;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Final Results Screen -->
+        <div id="result-screen" class="hidden w-full bg-cardbg border-2 border-amber-200/80 rounded-2xl shadow-lg p-6 sm:p-10 text-center fade-in">
+            <div class="inline-block px-4 py-1 rounded-full bg-maroon-light text-maroon text-sm font-bold mb-4">
+                ॥ समाप्तिः ॥
+            </div>
+            <h2 class="font-serif text-2xl sm:text-3xl font-bold text-ink mb-2">
+                अन्तिमः परिणामः
+            </h2>
+            <p class="text-stone-600 text-sm sm:text-base mb-6">
+                पाठः — १. शत्रोः रक्षितः काकः
+            </p>
+
+            <!-- Score Circle / Card -->
+            <div class="max-w-xs mx-auto bg-gradient-to-b from-amber-50 to-orange-50/70 border-2 border-amber-300 rounded-2xl p-6 mb-6 shadow-inner">
+                <p class="text-sm font-semibold text-amber-900 uppercase tracking-wider mb-1">
+                    भवतः प्राप्ताङ्काः
+                </p>
+                <div class="text-4xl sm:text-5xl font-serif font-bold text-maroon my-2">
+                    <span id="final-score">०</span> <span class="text-2xl text-stone-500">/ १०</span>
+                </div>
+                <p id="final-percentage" class="text-base font-semibold text-amber-800 mt-1">
+                    (०%)
+                </p>
+            </div>
+
+            <!-- Sanskrit Performance Remark -->
+            <div id="performance-banner" class="max-w-lg mx-auto p-4 rounded-xl bg-amber-50 border border-amber-200 mb-6">
+                <h3 id="performance-title" class="font-serif text-xl font-bold text-maroon mb-1"></h3>
+                <p id="performance-message" class="text-stone-700 text-sm sm:text-base"></p>
+            </div>
+
+            <!-- Detailed Review Summary of All Questions -->
+            <div class="text-left max-w-2xl mx-auto mb-8">
+                <h3 class="font-serif text-lg sm:text-xl font-bold text-ink mb-3 pb-2 border-b border-amber-200">
+                    प्रश्नानां पुनरावलोकनम् (समीक्षा) :
+                </h3>
+                <div id="review-container" class="space-y-3 max-h-96 overflow-y-auto pr-1">
+                    <!-- Review items populated dynamically -->
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button type="button" onclick="restartQuiz()" class="w-full sm:w-auto px-8 py-3.5 bg-maroon hover:bg-maroon-dark text-white font-semibold rounded-xl shadow-md hover:shadow-lg transition-all duration-200 text-base sm:text-lg cursor-pointer">
+                    पुनः आरभताम् ↻
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="max-w-3xl w-full mx-auto text-center mt-8 text-xs sm:text-sm text-stone-500">
+        पाठाधारितं संस्कृत-शिक्षणम् • शुभं भवतु
+    </footer>
+
+    <!-- Quiz Logic in Vanilla JS -->
+    <script>
+        // Helper to convert Western digits to Devanagari digits
+        function toDevanagariDigits(num) {
+            const devDigits = ['०', '१', '२', '३', '४', '५', '६', '७', '८', '९'];
+            return num.toString().split('').map(ch => (ch >= '0' && ch <= '9') ? devDigits[parseInt(ch)] : ch).join('');
+        }
+
+        // Option prefixes in Devanagari
+        const optionLabels = ['क', 'ख', 'ग', 'घ'];
+
+        // Strictly curated 10 MCQs from the uploaded textbook chapter "1. शत्रोः रक्षितः काकः"
+        const quizData = [
+            {
+                question: "कस्य मूले एकं बिलमपि अस्ति?",
+                options: ["वृक्षस्य", "पर्वतस्य", "गृहस्य", "नद्याः"],
+                correctIndex: 0,
+                explanation: "पाठे लिखितम् अस्ति — 'वृक्षस्य मूले एकं बिलमपि अस्ति।'"
+            },
+            {
+                question: "वृक्षस्य बिले कः वसति?",
+                options: ["सर्पः", "शृगालः", "काकः", "मूषकः"],
+                correctIndex: 0,
+                explanation: "पाठे स्पष्टम् उक्तम् — 'तस्मिन् बिले एकः सर्पः वसति।'"
+            },
+            {
+                question: "काकद्वयम् आहारम् आनेतुं कुतः बहिः गच्छति?",
+                options: ["नीडात्", "बिलात्", "नद्याः", "ग्रामात्"],
+                correctIndex: 0,
+                explanation: "पाठे अस्ति — 'प्रतिदिनं काकद्वयम् आहारम् आनेतुं नीडात् बहिः गच्छति।'"
+            },
+            {
+                question: "सर्पः काकस्य नीडं प्रति गत्वा कानि खादति?",
+                options: ["अण्डानि", "फलानि", "पर्णानि", "पुष्पाणि"],
+                correctIndex: 0,
+                explanation: "पाठे लिखितम् — 'तस्मिन् समये सर्पः काकस्य नीडं प्रति गत्वा तस्य अण्डानि खादति।'"
+            },
+            {
+                question: "काकस्य बाल्यमित्रं कः अस्ति?",
+                options: ["शृगालः", "सर्पः", "मयूरः", "हंसः"],
+                correctIndex: 0,
+                explanation: "पाठे उल्लेखः अस्ति — 'एकस्मिन् दिने काकस्य बाल्यमित्रं शृगालः वृक्षस्य समीपम् आगच्छति।'"
+            },
+            {
+                question: "वृक्षस्य समीपे का प्रवहति?",
+                options: ["नदी", "कुल्या", "सरः", "समुद्रः"],
+                correctIndex: 0,
+                explanation: "पाठे उक्तम् अस्ति — 'तस्य वृक्षस्य समीपे एका नदी प्रवहति।'"
+            },
+            {
+                question: "राजकुमारी काभिः सह नद्यां स्नातुम् आगच्छति?",
+                options: ["सखीभिः", "सेविकाभिः", "भ्रातृभिः", "मातापितृभ्याम्"],
+                correctIndex: 0,
+                explanation: "पाठे लिखितम् — 'देशस्य राजकुमारी नद्यां स्नातुं सखीभिः सह आगच्छति।'"
+            },
+            {
+                question: "काकः चञ्च्वा किम् गृहीत्वा वृक्षं प्रति आगच्छति?",
+                options: ["मणिमालाम्", "वस्त्रम्", "पुष्पमालाम्", "फलम्"],
+                correctIndex: 0,
+                explanation: "पाठे वर्णितम् — 'अग्रिमे दिने काकः नदीतीरं गत्वा राजकुमार्याः मणिमालां चञ्च्वा गृहीत्वा, वृक्षं प्रति आगच्छति।'"
+            },
+            {
+                question: "काकः मणिमालां कुत्र क्षिपति?",
+                options: ["बिले", "नद्याम्", "नीडे", "मार्गे"],
+                correctIndex: 0,
+                explanation: "पाठे स्पष्टम् अस्ति — 'मणिमालां बिले क्षिपति च।'"
+            },
+            {
+                question: "अन्ते के सर्पं मारयन्ति?",
+                options: ["सेवकाः", "काकौ", "शृगालः", "राजकुमारी"],
+                correctIndex: 0,
+                explanation: "पाठे अन्ते लिखितम् — 'सेवकाः सर्पं मारयन्ति। तदनन्तरं काकद्वयं सन्तोषेण सपरिवारं वृक्षस्य नीडे वसति।'"
+            }
+        ];
+
+        // Quiz State
+        let currentQuestionIndex = 0;
+        let userAnswers = []; // Stores selected option index per question (null if unanswered)
+
+        // DOM Elements
+        const startScreen = document.getElementById('start-screen');
+        const quizScreen = document.getElementById('quiz-screen');
+        const resultScreen = document.getElementById('result-screen');
+
+        const questionCounter = document.getElementById('question-counter');
+        const scoreDisplay = document.getElementById('score-display');
+        const progressBar = document.getElementById('progress-bar');
+        const questionText = document.getElementById('question-text');
+        const optionsContainer = document.getElementById('options-container');
+
+        const feedbackBox = document.getElementById('feedback-box');
+        const feedbackIcon = document.getElementById('feedback-icon');
+        const feedbackTitle = document.getElementById('feedback-title');
+        const feedbackExplanation = document.getElementById('feedback-explanation');
+
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtnText = document.getElementById('next-btn-text');
+        const reviewContainer = document.getElementById('review-container');
+
+        // Calculate score dynamically from persisted userAnswers to prevent double counting
+        function calculateScore() {
+            return userAnswers.reduce((total, selectedIdx, qIdx) => {
+                if (selectedIdx !== null && selectedIdx === quizData[qIdx].correctIndex) {
+                    return total + 1;
+                }
+                return total;
+            }, 0);
+        }
+
+        // Start Quiz
+        function startQuiz() {
+            currentQuestionIndex = 0;
+            userAnswers = new Array(quizData.length).fill(null);
+
+            startScreen.classList.add('hidden');
+            resultScreen.classList.add('hidden');
+            quizScreen.classList.remove('hidden');
+
+            updateScoreDisplay();
+            loadQuestion();
+        }
+
+        // Update Score Header
+        function updateScoreDisplay() {
+            scoreDisplay.textContent = toDevanagariDigits(calculateScore());
+        }
+
+        // Load Current Question & Restore Saved State if Already Answered
+        function loadQuestion() {
+            const currentData = quizData[currentQuestionIndex];
+            const totalQuestions = quizData.length;
+            const savedSelection = userAnswers[currentQuestionIndex];
+
+            // Update Progress & Counter
+            questionCounter.textContent = `प्रश्नः ${toDevanagariDigits(currentQuestionIndex + 1)} / ${toDevanagariDigits(totalQuestions)}`;
+            const progressPercent = ((currentQuestionIndex + 1) / totalQuestions) * 100;
+            progressBar.style.width = `${progressPercent}%`;
+
+            // Set Question Text
+            questionText.textContent = `${toDevanagariDigits(currentQuestionIndex + 1)}. ${currentData.question}`;
+
+            // Update Navigation Button States
+            prevBtn.disabled = currentQuestionIndex === 0;
+            if (currentQuestionIndex < totalQuestions - 1) {
+                nextBtnText.textContent = "अग्रिमः प्रश्नः";
+            } else {
+                nextBtnText.textContent = "परिणामः पश्यतु";
+            }
+
+            // Render Options
+            optionsContainer.innerHTML = '';
+            currentData.options.forEach((optionText, index) => {
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.className = 'w-full text-left p-4 rounded-xl border-2 border-amber-200/90 bg-white hover:bg-amber-50/80 hover:border-amber-400 transition-all duration-150 flex items-center gap-3.5 cursor-pointer group focus:outline-none';
+                button.onclick = () => selectOption(index);
+
+                button.innerHTML = `
+                    <span class="w-9 h-9 rounded-lg bg-amber-100/80 text-amber-950 font-bold flex items-center justify-center shrink-0 border border-amber-300 group-hover:bg-maroon group-hover:text-white group-hover:border-maroon transition-colors">
+                        ${optionLabels[index]}
+                    </span>
+                    <span class="text-base sm:text-lg font-medium text-ink">
+                        ${optionText}
+                    </span>
+                `;
+                optionsContainer.appendChild(button);
+            });
+
+            // Restore locked answer & feedback if this question was previously answered
+            if (savedSelection !== null) {
+                renderAnsweredState(savedSelection);
+            } else {
+                feedbackBox.classList.add('hidden');
+            }
+        }
+
+        // Handle Option Selection
+        function selectOption(selectedIndex) {
+            // Do not allow changing once locked
+            if (userAnswers[currentQuestionIndex] !== null) return;
+
+            userAnswers[currentQuestionIndex] = selectedIndex;
+            updateScoreDisplay();
+            renderAnsweredState(selectedIndex);
+        }
+
+        // Apply visual feedback and lock options for an answered question
+        function renderAnsweredState(selectedIndex) {
+            const currentData = quizData[currentQuestionIndex];
+            const isCorrect = selectedIndex === currentData.correctIndex;
+            const allButtons = optionsContainer.querySelectorAll('button');
+
+            allButtons.forEach((btn, idx) => {
+                btn.disabled = true;
+                btn.classList.remove('hover:bg-amber-50/80', 'hover:border-amber-400', 'cursor-pointer');
+                btn.classList.add('cursor-default');
+
+                const badge = btn.querySelector('span:first-child');
+                badge.classList.remove('group-hover:bg-maroon', 'group-hover:text-white', 'group-hover:border-maroon');
+
+                if (idx === currentData.correctIndex) {
+                    // Highlight correct option in green
+                    btn.classList.remove('border-amber-200/90', 'bg-white');
+                    btn.classList.add('border-emerald-600', 'bg-emerald-50');
+                    badge.classList.remove('bg-amber-100/80', 'text-amber-950', 'border-amber-300');
+                    badge.classList.add('bg-emerald-600', 'text-white', 'border-emerald-600');
+                } else if (idx === selectedIndex && !isCorrect) {
+                    // Highlight chosen wrong option in red
+                    btn.classList.remove('border-amber-200/90', 'bg-white');
+                    btn.classList.add('border-rose-600', 'bg-rose-50');
+                    badge.classList.remove('bg-amber-100/80', 'text-amber-950', 'border-amber-300');
+                    badge.classList.add('bg-rose-600', 'text-white', 'border-rose-600');
+                } else {
+                    btn.classList.add('opacity-60');
+                }
+            });
+
+            // Show Feedback Box
+            feedbackBox.classList.remove('hidden', 'border-emerald-500', 'bg-emerald-50/90', 'border-rose-500', 'bg-rose-50/90');
+
+            if (isCorrect) {
+                feedbackBox.classList.add('border-emerald-500', 'bg-emerald-50/90');
+                feedbackIcon.innerHTML = `
+                    <svg class="w-6 h-6 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                `;
+                feedbackTitle.textContent = "समीचीनम्! सम्यक् उत्तरम्!";
+                feedbackTitle.className = "font-bold text-lg text-emerald-900";
+                feedbackExplanation.innerHTML = `<strong>स्पष्टीकरणम् :</strong> ${currentData.explanation}`;
+            } else {
+                const correctOptionText = `${optionLabels[currentData.correctIndex]}) ${currentData.options[currentData.correctIndex]}`;
+                feedbackBox.classList.add('border-rose-500', 'bg-rose-50/90');
+                feedbackIcon.innerHTML = `
+                    <svg class="w-6 h-6 text-rose-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                `;
+                feedbackTitle.textContent = "अशुद्धम् उत्तरम्!";
+                feedbackTitle.className = "font-bold text-lg text-rose-900";
+                feedbackExplanation.innerHTML = `
+                    <span class="block font-semibold text-emerald-900 mb-1">उचितम् उत्तरम् : ${correctOptionText}</span>
+                    <strong>स्पष्टीकरणम् :</strong> ${currentData.explanation}
+                `;
+            }
+        }
+
+        // Navigate to Previous Question
+        function prevQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                loadQuestion();
+            }
+        }
+
+        // Navigate to Next Question or Show Results
+        function nextQuestion() {
+            if (currentQuestionIndex < quizData.length - 1) {
+                currentQuestionIndex++;
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        // Show Final Results Screen with Full Question Review
+        function showResults() {
+            quizScreen.classList.add('hidden');
+            resultScreen.classList.remove('hidden');
+
+            const total = quizData.length;
+            const finalScore = calculateScore();
+            const percentage = Math.round((finalScore / total) * 100);
+
+            document.getElementById('final-score').textContent = toDevanagariDigits(finalScore);
+            document.getElementById('final-percentage').textContent = `(${toDevanagariDigits(percentage)}%)`;
+
+            const perfTitle = document.getElementById('performance-title');
+            const perfMsg = document.getElementById('performance-message');
+
+            if (finalScore >= 9) {
+                perfTitle.textContent = "अति उत्तमम्! अभिनन्दनम्!";
+                perfMsg.textContent = "भवता पाठः सम्यक् अवगतः। सर्वेषां प्रश्नानां प्रायः शुद्धम् उत्तरं दत्तम्।";
+            } else if (finalScore >= 6) {
+                perfTitle.textContent = "उत्तमः प्रयासः!";
+                perfMsg.textContent = "भवतः ज्ञानं शोभनम् अस्ति। पुनः पाठं पठित्वा शतप्रतिशतम् अङ्कान् प्राप्नुयात्।";
+            } else {
+                perfTitle.textContent = "पुनः अभ्यासः करणीयः!";
+                perfMsg.textContent = "चिन्ता मास्तु। पाठं पुनः ध्यानपूर्वकं पठित्वा अयं प्रश्नमञ्चः पुनः क्रियताम्।";
+            }
+
+            // Build Review List
+            reviewContainer.innerHTML = '';
+            quizData.forEach((item, idx) => {
+                const chosenIdx = userAnswers[idx];
+                const isAnswered = chosenIdx !== null;
+                const isCorrect = isAnswered && chosenIdx === item.correctIndex;
+
+                const statusBadge = !isAnswered
+                    ? `<span class="px-2.5 py-0.5 text-xs font-semibold rounded-md bg-stone-200 text-stone-700">अनुत्तरितम्</span>`
+                    : isCorrect
+                        ? `<span class="px-2.5 py-0.5 text-xs font-semibold rounded-md bg-emerald-100 text-emerald-800">समीचीनम् ✓</span>`
+                        : `<span class="px-2.5 py-0.5 text-xs font-semibold rounded-md bg-rose-100 text-rose-800">अशुद्धम् ✗</span>`;
+
+                const chosenText = isAnswered
+                    ? `${optionLabels[chosenIdx]}) ${item.options[chosenIdx]}`
+                    : "उत्तरं न चितम्";
+
+                const correctText = `${optionLabels[item.correctIndex]}) ${item.options[item.correctIndex]}`;
+
+                const card = document.createElement('div');
+                card.className = `p-4 rounded-xl border ${!isAnswered ? 'border-stone-200 bg-stone-50/70' : isCorrect ? 'border-emerald-200 bg-emerald-50/40' : 'border-rose-200 bg-rose-50/40'}`;
+                card.innerHTML = `
+                    <div class="flex items-start justify-between gap-2 mb-1.5">
+                        <p class="font-semibold text-ink text-sm sm:text-base">
+                            ${toDevanagariDigits(idx + 1)}. ${item.question}
+                        </p>
+                        <div class="shrink-0">${statusBadge}</div>
+                    </div>
+                    <p class="text-xs sm:text-sm text-stone-700">
+                        <strong>भवतः उत्तरम् :</strong> <span class="${isCorrect ? 'text-emerald-800 font-medium' : isAnswered ? 'text-rose-800 font-medium' : 'text-stone-500'}">${chosenText}</span>
+                    </p>
+                    ${!isCorrect ? `<p class="text-xs sm:text-sm text-emerald-900 mt-0.5"><strong>उचितम् उत्तरम् :</strong> ${correctText}</p>` : ''}
+                `;
+                reviewContainer.appendChild(card);
+            });
+        }
+
+        // Restart Quiz
+        function restartQuiz() {
+            startQuiz();
+        }
+    </script>
+</body>
+</html>
